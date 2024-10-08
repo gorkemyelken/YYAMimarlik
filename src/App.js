@@ -38,21 +38,13 @@ function App() {
     return () => clearTimeout(timer);
   }, [location]); // her rota değişiminde bu etki tetiklenir
 
-  // Navi ve Footer'ın görünürlüğünü kontrol et
-  const showNavi = !location.pathname.startsWith("/projeler/");
-  const showFooter = location.pathname !== "/" && !location.pathname.startsWith("/projeler/"); // Proje detay sayfasında footer'ı gizle
-
   // Sağ tıklama ve metin seçimini engellemek için eklenen useEffect
   useEffect(() => {
-    // Sağ tıklamayı devre dışı bırak
     const disableRightClick = (e) => {
       e.preventDefault();
     };
 
-    // Sayfada sağ tıklamayı kapat
     document.addEventListener("contextmenu", disableRightClick);
-
-    // Bileşen unmount olduğunda event listener'ı temizle
     return () => {
       document.removeEventListener("contextmenu", disableRightClick);
     };
@@ -61,8 +53,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', userSelect: 'none' }}>
-        {/* Navi yalnızca Proje Detay sayfası haricinde görünecek */}
-        {showNavi && <Navi />}
+        {/* Navi yalnızca loading tamamlanınca ve Proje Detay sayfası haricinde görünecek */}
+        {!loading && location.pathname !== "/projeler/" && <Navi />}
         <div style={{ flexGrow: 1 }}>
           {/* Loading animasyonu */}
           <AnimatePresence>
@@ -135,6 +127,7 @@ function App() {
                       </motion.div>
                     }
                   />
+                  {/* 404 sayfası en son yer almalı */}
                   <Route
                     path="*"
                     element={
@@ -148,8 +141,8 @@ function App() {
             )}
           </AnimatePresence>
         </div>
-        {/* Footer yalnızca anasayfa dışındaki sayfalarda ve Proje Detay sayfasında gizli olacak */}
-        {showFooter && <Footer />}
+        {/* Footer yalnızca loading tamamlanınca ve anasayfa dışındaki sayfalarda gizli olacak */}
+        {!loading && location.pathname !== "/" && location.pathname !== "/projeler/" && <Footer />}
       </div>
     </ThemeProvider>
   );

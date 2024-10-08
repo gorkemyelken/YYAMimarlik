@@ -1,0 +1,36 @@
+.error404-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full height of the viewport */
+    background-color: #f8f9fa; /* Light background color */
+    text-align: center;
+  }
+  
+  .error404-title {
+    font-size: 72px; /* Large title size */
+    color: #dc3545; /* Bootstrap danger color */
+  }
+  
+  .error404-message {
+    font-size: 24px; /* Medium text size */
+    margin: 20px 0; /* Margin for spacing */
+  }
+  
+  .error404-link {
+    display: inline-block; /* Make the link appear as a button */
+    margin: 10px 20px; /* Spacing around the button */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 18px; /* Font size for the button */
+    color: #fff; /* White text color */
+    background-color: #007bff; /* Bootstrap primary color */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* No underline */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  .error404-link:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  
