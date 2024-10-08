@@ -46,75 +46,88 @@ function App() {
         <Navi />
         <div style={{ flexGrow: 1 }}>
           {/* Loading animasyonu */}
-          {loading ? (
-            <div className="loading-container">
-              {/* Framer Motion ile logo animasyonu */}
-              <motion.img
-                src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo.png"
-                alt="Loading logo"
-                initial={{ opacity: 0, rotate: 0, scale: 0.5 }}
+          <AnimatePresence>
+            {loading ? (
+              <motion.div
+                className="loading-container"
+                initial={{ opacity: 1, rotate: 0, scale: 0.5 }}
                 animate={{ opacity: 1, rotate: 360, scale: 1 }}
-                transition={{ duration: 1.5, repeat: Infinity, repeatType: "loop", ease: "easeInOut" }}
-                className="loading-logo"
-              />
-            </div>
-          ) : (
-            // Sayfa içerikleri (loading tamamlanınca gösterilecek)
-            <AnimatePresence>
-              <Routes location={location} key={location.key}>
-                <Route exact path="/" element={<AnaSayfa />} />
-                <Route exact path="/anasayfa" element={<AnaSayfa />} />
-                <Route
-                  path="/kurumsal"
-                  element={
-                    <motion.div {...pageTransition}>
-                      <Hakkımızda />
-                    </motion.div>
-                  }
+                exit={{ opacity: 0 }} // Solarak kaybolma efekti
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "easeInOut",
+                  exit: { duration: 1 }, // Exit sırasında geçiş süresi
+                }}
+              >
+                <motion.img
+                  src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo.png"
+                  alt="Loading logo"
+                  className="loading-logo"
+                  initial={{ opacity: 0.8 }}
+                  animate={{ opacity: 1, rotate: 360 }}
+                  transition={{ duration: 1.5, ease: "easeInOut", repeat: Infinity, repeatType: "loop" }}
                 />
-                <Route
-                  path="/projeler"
-                  element={
-                    <motion.div {...pageTransition}>
-                      <Projelerimiz />
-                    </motion.div>
-                  }
-                />
-                <Route
-                  path="/projeler/:slug" 
-                  element={
-                    <motion.div {...pageTransition}>
-                      <ProjeDetay />
-                    </motion.div>
-                  }
-                />
-                <Route
-                  path="/iletisim"
-                  element={
-                    <motion.div {...pageTransition}>
-                      <İletisim />
-                    </motion.div>
-                  }
-                />
-                <Route
-                  path="/referanslar"
-                  element={
-                    <motion.div {...pageTransition}>
-                      <Referanslar />
-                    </motion.div>
-                  }
-                />
-                <Route
-                  path="*"
-                  element={
-                    <motion.div {...pageTransition}>
-                      <Error404 />
-                    </motion.div>
-                  }
-                />
-              </Routes>
-            </AnimatePresence>
-          )}
+              </motion.div>
+            ) : (
+              // Sayfa içerikleri (loading tamamlanınca gösterilecek)
+              <AnimatePresence>
+                <Routes location={location} key={location.key}>
+                  <Route exact path="/" element={<AnaSayfa />} />
+                  <Route exact path="/anasayfa" element={<AnaSayfa />} />
+                  <Route
+                    path="/kurumsal"
+                    element={
+                      <motion.div {...pageTransition}>
+                        <Hakkımızda />
+                      </motion.div>
+                    }
+                  />
+                  <Route
+                    path="/projeler"
+                    element={
+                      <motion.div {...pageTransition}>
+                        <Projelerimiz />
+                      </motion.div>
+                    }
+                  />
+                  <Route
+                    path="/projeler/:slug" 
+                    element={
+                      <motion.div {...pageTransition}>
+                        <ProjeDetay />
+                      </motion.div>
+                    }
+                  />
+                  <Route
+                    path="/iletisim"
+                    element={
+                      <motion.div {...pageTransition}>
+                        <İletisim />
+                      </motion.div>
+                    }
+                  />
+                  <Route
+                    path="/referanslar"
+                    element={
+                      <motion.div {...pageTransition}>
+                        <Referanslar />
+                      </motion.div>
+                    }
+                  />
+                  <Route
+                    path="*"
+                    element={
+                      <motion.div {...pageTransition}>
+                        <Error404 />
+                      </motion.div>
+                    }
+                  />
+                </Routes>
+              </AnimatePresence>
+            )}
+          </AnimatePresence>
         </div>
         {/* Footer yalnızca anasayfa dışındaki sayfalarda görünecek */}
         {showFooter && <Footer />}
