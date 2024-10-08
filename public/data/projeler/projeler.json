@@ -1,0 +1,46 @@
+[
+    {
+      "id": 1,
+      "name": "Selçuker Center",
+      "description": "acıklama 1",
+      "projectType": "İNŞAAT",
+      "createdAt": "2024",
+      "addedAt": "2024-10-06T04:19:53.292437",
+      "images": [
+        "https://yyamimarlik.s3.amazonaws.com/Projeler/selcuker1.jpg",
+        "https://yyamimarlik.s3.amazonaws.com/Projeler/selcuker2.jpg",
+        "https://yyamimarlik.s3.amazonaws.com/Projeler/selcuker3.jpg",
+        "https://yyamimarlik.s3.amazonaws.com/Projeler/selcuker4.jpg",
+        "https://yyamimarlik.s3.amazonaws.com/Projeler/selcuker5.jpg",
+        "https://yyamimarlik.s3.amazonaws.com/Projeler/selcuker6.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Doğa Şehir",
+      "description": "acıklama 2",
+      "projectType": "VİLLA",
+      "createdAt": "2024",
+      "addedAt": "2024-10-06T04:19:53.292437",
+      "images": [
+        "https://yyamimarlik.s3.amazonaws.com/Projeler/dogasehir1.jpg",
+        "https://yyamimarlik.s3.amazonaws.com/Projeler/dogasehir2.jpg",
+        "https://yyamimarlik.s3.amazonaws.com/Projeler/dogasehir3.jpg",
+        "https://yyamimarlik.s3.amazonaws.com/Projeler/dogasehir5.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Hakim Konakları",
+      "description": "acıklama3",
+      "projectType": "İNŞAAT",
+      "createdAt": "2024",
+      "addedAt": "2024-10-06T04:19:53.292437",
+      "images": [
+        "https://yyamimarlik.s3.amazonaws.com/Projeler/hakim konutları1.jpg",
+        "https://yyamimarlik.s3.amazonaws.com/Projeler/hakim konutları2.jpg",
+        "https://yyamimarlik.s3.amazonaws.com/Projeler/hakim konutları3.jpg"
+      ]
+    }
+  ]
+  

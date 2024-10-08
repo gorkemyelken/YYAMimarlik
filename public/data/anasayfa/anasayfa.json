@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/AnaSayfa/anasayfa1.jpg",
+    "name": "Proje Name 1"
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/AnaSayfa/anasayfa2.jpg",
+    "name": "Proje Name 2"
+  }
+]

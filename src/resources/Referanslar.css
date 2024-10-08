@@ -1,0 +1,28 @@
+.card-media {
+  transition: filter 0.3s ease; /* Smooth transition for the filter effect */
+  filter: grayscale(100%); /* Start with grayscale */
+  display: block; /* Ensure it behaves like a block element */
+  width: 100%; /* Ensure full width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.card-media:hover {
+  filter: grayscale(0%); /* Remove grayscale on hover */
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 0; /* Position at the bottom of the image */
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white; /* Text color */
+  padding: 8px;
+  text-align: center;
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+.card-media:hover + .overlay-text {
+  opacity: 1; /* Show on hover */
+}
