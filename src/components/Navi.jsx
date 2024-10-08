@@ -80,7 +80,15 @@ const Navi = () => {
               keepMounted
             >
               {pages.map((page, index) => (
-                <MenuItem key={index} onClick={handleMenuClose} component={Link} to={page.path}>
+                <MenuItem 
+                  key={index} 
+                  onClick={handleMenuClose} 
+                  component={Link} 
+                  to={page.path}
+                  sx={{ 
+                    textDecoration: location.pathname === page.path ? "underline" : "none", // Alt çizgi
+                  }}
+                >
                   <Typography fontFamily="Poppins" fontSize="18px">
                     {page.name}
                   </Typography>
@@ -105,7 +113,10 @@ const Navi = () => {
                   key={index} 
                   component={Link} 
                   to={page.path}
-                  sx={{ color: isHomePage ? "white" : "black" }}
+                  sx={{ 
+                    color: isHomePage ? "white" : "black", 
+                    textDecoration: location.pathname === page.path ? "underline" : "none", // Alt çizgi
+                  }}
                 >
                   <Typography fontFamily="Poppins" fontSize="18px">
                     {page.name}
@@ -142,7 +153,10 @@ const Navi = () => {
                   key={index} 
                   component={Link} 
                   to={page.path}
-                  sx={{ color: isHomePage ? "white" : "black" }}
+                  sx={{ 
+                    color: isHomePage ? "white" : "black", 
+                    textDecoration: location.pathname === page.path ? "underline" : "none", // Alt çizgi
+                  }}
                 >
                   <Typography fontFamily="Poppins" fontSize="18px">
                     {page.name}
