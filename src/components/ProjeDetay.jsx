@@ -118,7 +118,7 @@ export default function ProjeDetay() {
             setCurrentImageIndex((currentImageIndex + 1) % proje.images.length) // Sonraki resim
           }
           imageTitle={proje.name} // Resim başlığı
-          imageCaption={proje.name} // Resim açıklaması
+          imageCaption={`${currentImageIndex + 1} / ${proje.images.length}`} // Resim açıklaması
         />
       )}
     </Container>
