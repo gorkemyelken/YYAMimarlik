@@ -72,7 +72,7 @@ const Hakkımızda = () => {
     <Container className="page-container" maxWidth="lg">
       <AnimatedImageWrapper mt={4}>
         <AnimatedImage
-          src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo.png"
+          src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-mavi.png"
           alt="Mimarlık Projesi"
         />
         {/* Scroll aşağı animasyonu */}

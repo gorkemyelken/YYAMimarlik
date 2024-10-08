@@ -141,7 +141,7 @@ const Navi = () => {
             {/* Masaüstü görünümü (900px ve üstü) */}
             <Box sx={{ position: 'absolute', left: '20px' }}>
               <img 
-                src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo.png" 
+                src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-mavi.png" 
                 alt="Logo" 
                 style={{ height: "100px" }}
               />
