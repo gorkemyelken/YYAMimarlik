@@ -38,12 +38,31 @@ function App() {
     return () => clearTimeout(timer);
   }, [location]); // her rota değişiminde bu etki tetiklenir
 
-  const showFooter = location.pathname !== "/"; // Footer yalnızca anasayfa dışındaki sayfalarda görünür
+  // Navi ve Footer'ın görünürlüğünü kontrol et
+  const showNavi = !location.pathname.startsWith("/projeler/");
+  const showFooter = location.pathname !== "/" && !location.pathname.startsWith("/projeler/"); // Proje detay sayfasında footer'ı gizle
+
+  // Sağ tıklama ve metin seçimini engellemek için eklenen useEffect
+  useEffect(() => {
+    // Sağ tıklamayı devre dışı bırak
+    const disableRightClick = (e) => {
+      e.preventDefault();
+    };
+
+    // Sayfada sağ tıklamayı kapat
+    document.addEventListener("contextmenu", disableRightClick);
+
+    // Bileşen unmount olduğunda event listener'ı temizle
+    return () => {
+      document.removeEventListener("contextmenu", disableRightClick);
+    };
+  }, []); // Bu etki sadece bileşen yüklendiğinde bir kez çalışır
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="App" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        <Navi />
+      <div className="App" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', userSelect: 'none' }}>
+        {/* Navi yalnızca Proje Detay sayfası haricinde görünecek */}
+        {showNavi && <Navi />}
         <div style={{ flexGrow: 1 }}>
           {/* Loading animasyonu */}
           <AnimatePresence>
@@ -129,7 +148,7 @@ function App() {
             )}
           </AnimatePresence>
         </div>
-        {/* Footer yalnızca anasayfa dışındaki sayfalarda görünecek */}
+        {/* Footer yalnızca anasayfa dışındaki sayfalarda ve Proje Detay sayfasında gizli olacak */}
         {showFooter && <Footer />}
       </div>
     </ThemeProvider>
