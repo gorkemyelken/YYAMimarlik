@@ -49,7 +49,7 @@ const Footer = () => {
           </Grid>
           <Grid item xs={12} md={4} display="flex" justifyContent="center">
             <img
-              src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo.png"
+              src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-mavi.png"
               alt="YYA Mimarlik Logo"
               style={{ height: "80px", width: "auto" }}
             />
