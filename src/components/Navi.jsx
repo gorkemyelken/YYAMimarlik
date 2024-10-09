@@ -101,7 +101,7 @@ const Navi = () => {
             {/* Tablet görünümü (600px ile 900px arası) */}
             <Box sx={{ position: 'static', left: '110px' }}>
               <img 
-                src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo.png" 
+                src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-mavi.png" 
                 alt="Logo" 
                 style={{ height: "100px" }}
               />
