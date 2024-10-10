@@ -14,7 +14,7 @@ const Footer = () => {
     <Box
       sx={{
         backgroundColor: "#f5f5f5",
-        py: 2, // Yüksekliği artırmak için padding'i biraz artırıyoruz
+        py: 0.2, // Yüksekliği artırmak için padding'i biraz artırıyoruz
         borderTop: "1px solid #ddd",
       }}
     >

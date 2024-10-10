@@ -62,7 +62,7 @@ const Navi = () => {
 
             {/* Ortadaki Logo */}
             <img 
-              src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo.png" 
+              src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-mavi.png" 
               alt="Logo" 
               style={{ height: "100px" }}
             />

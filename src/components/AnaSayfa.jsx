@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
-import LazyLoad from "react-lazyload";  // LazyLoad bileşeni ekleniyor
 import "../resources/AnaSayfa.css";
+import LazyLoad from "react-lazyload"; 
 
 const AnaSayfa = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -24,7 +24,7 @@ const AnaSayfa = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch("/data/anasayfa/anasayfa.json");
+        const response = await fetch("/data/anasayfa/anasayfa.json");  // public klasöründen JSON dosyası alınıyor
         if (!response.ok) {
           throw new Error("JSON dosyasına erişilemiyor");
         }
@@ -51,22 +51,43 @@ const AnaSayfa = () => {
         {imageUrls.map((image, index) => (
           <div key={index}>
             <LazyLoad height={window.innerHeight} offset={100}>
-              <div
-                className="anasayfa_image"
-                style={{
-                  background: `url(${image.imageUrl})`,
-                  height: "100vh",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  transform: currentSlide === index ? "scale(1.1)" : "scale(1)",
-                  transition: "transform 0.5s ease",
-                }}
-              ></div>
+            <div
+              className="anasayfa_image"
+              style={{
+                background: `url(${image.imageUrl})`,
+                height: "100vh",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                transform: currentSlide === index ? "scale(1.1)" : "scale(1)",
+                transition: "transform 0.5s ease",
+              }}
+            ></div>
             </LazyLoad>
           </div>
         ))}
       </Slider>
-      {/* Kalan sosyal medya ve diğer butonlar */}
+      <div className="info-button-container">
+        <button className="info-button">
+          <i className="fas fa-info-circle"></i>
+        </button>
+        <div className="tooltip">
+          {imageUrls[currentSlide] && imageUrls[currentSlide].name}
+        </div>
+      </div>
+      <div className="social-buttons">
+        <a href="https://www.instagram.com/yyamimarlik/" target="_blank" rel="noopener noreferrer" className="social-button">
+          <i className="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/yasin-yarmal%C4%B1-96356b131/" target="_blank" rel="noopener noreferrer" className="social-button">
+          <i className="fab fa-linkedin"></i>
+        </a>
+        <a href="https://wa.me/+905545188580" target="_blank" rel="noopener noreferrer" className="social-button">
+          <i className="fab fa-whatsapp"></i>
+        </a>
+        <a href="mailto:info@yyamimarlik.com" className="social-button">
+          <i className="fas fa-envelope"></i>
+        </a>
+      </div>
     </div>
   );
 };
