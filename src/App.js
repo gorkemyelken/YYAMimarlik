@@ -12,6 +12,7 @@ import AnaSayfa from "./components/AnaSayfa";
 import Navi from "./components/Navi";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Footer from "./components/Footer";
+import Kvkk from "./components/Kvkk";
 
 const pageTransition = {
   initial: { opacity: 0, scale: 0.9 },
@@ -124,6 +125,14 @@ function App() {
                     element={
                       <motion.div {...pageTransition}>
                         <Referanslar />
+                      </motion.div>
+                    }
+                  />
+                  <Route
+                    path="/kvkk"
+                    element={
+                      <motion.div {...pageTransition}>
+                        <Kvkk />
                       </motion.div>
                     }
                   />
