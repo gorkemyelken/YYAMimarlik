@@ -61,12 +61,13 @@ const Navi = () => {
             </IconButton>
 
             {/* Ortadaki Logo */}
-            <img 
-              src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-mavi.png" 
-              alt="Logo" 
-              style={{ height: "100px" }}
-            />
-
+            <a href="/">
+  <img 
+    src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-mavi.png" 
+    alt="Logo" 
+    style={{ height: "100px" }}
+  />
+</a>
             {/* Sağdaki Paylaş Butonu */}
             <IconButton color="inherit" onClick={handleShare}>
               <ShareIcon sx={{ color: isHomePage ? "white" : "black" }} />
@@ -100,11 +101,13 @@ const Navi = () => {
           <>
             {/* Tablet görünümü (600px ile 900px arası) */}
             <Box sx={{ position: 'static', left: '110px' }}>
+            <a href="/">
               <img 
                 src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-mavi.png" 
                 alt="Logo" 
                 style={{ height: "100px" }}
               />
+              </a>
             </Box>
 
             <Box sx={{ display: "flex", gap: 2 }}>
@@ -140,11 +143,13 @@ const Navi = () => {
           <>
             {/* Masaüstü görünümü (900px ve üstü) */}
             <Box sx={{ position: 'absolute', left: '20px' }}>
+            <a href="/">
               <img 
                 src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-mavi.png" 
                 alt="Logo" 
                 style={{ height: "100px" }}
               />
+              </a>
             </Box>
 
             <Box sx={{ display: "flex", gap: 2 }}>
