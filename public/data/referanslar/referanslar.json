@@ -3,5 +3,10 @@
     "id": 1,
     "name": "Gorkem Yelken",
     "image": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/Male+Avatar.png"
+  },
+  {
+    "id": 2,
+    "name": "Yasin Yarmalı",
+    "image": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/Female+Avatar.png"
   }
 ]
