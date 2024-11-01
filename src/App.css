@@ -61,7 +61,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Tüm ekranı kapsasın */
+  height: 100vh; /* Yükseklik tam ekran olacak şekilde ayarlanır */
+  width: 100vw; /* Genişlik tam ekran */
+  overflow: hidden;
 }
 
 .loading-logo {

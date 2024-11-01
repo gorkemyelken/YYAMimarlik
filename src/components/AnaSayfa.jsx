@@ -101,6 +101,7 @@ const AnaSayfa = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="social-button"
+          aria-label="Instagram"
         >
           <i className="fab fa-instagram"></i>
         </a>
@@ -109,6 +110,7 @@ const AnaSayfa = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="social-button"
+          aria-label="LinkedIn"
         >
           <i className="fab fa-linkedin"></i>
         </a>
@@ -117,10 +119,15 @@ const AnaSayfa = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="social-button"
+          aria-label="WhatsApp"
         >
           <i className="fab fa-whatsapp"></i>
         </a>
-        <a href="mailto:info@yyamimarlik.com" className="social-button">
+        <a
+          href="mailto:info@yyamimarlik.com"
+          className="social-button"
+          aria-label="E-posta"
+        >
           <i className="fas fa-envelope"></i>
         </a>
       </div>
@@ -170,7 +177,7 @@ const AnaSayfa = () => {
               aria-label="close"
               color="inherit"
               onClick={closeSnackbar}
-              style={{ position: "absolute", right: 8, top: 8 }} // Sağ üst köşeye yerleştirme
+              style={{ position: "absolute", right: 8, top: 8 }}
             >
               <CloseIcon />
             </IconButton>
@@ -178,13 +185,13 @@ const AnaSayfa = () => {
         }
         sx={{
           "& .MuiSnackbarContent-root": {
-            backgroundColor: "rgba(0, 0, 0, 0.7)", // Saydamlık ve karartma
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
             color: "white",
-            backdropFilter: "blur(5px)", // Hafif bulanıklık
-            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.5)", // Gölge ekleyelim
-            maxWidth: "2500px", // Maksimum genişlik
-            width: "100%", // Genişliği %100 yap
-            position: "relative", // İçeriği konumlamak için
+            backdropFilter: "blur(5px)",
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.5)",
+            maxWidth: "80%", // Mobil uyumlu genişlik
+            width: "100%",
+            position: "relative",
           },
         }}
       />

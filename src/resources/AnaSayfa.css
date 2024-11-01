@@ -1,110 +1,107 @@
-/* AnaSayfa CSS */
 .anasayfa_wrapper {
-  height: 700px; /* Yükseklik ayarı */
-  overflow: hidden; /* Taşmayı engelle */
-  position: relative; /* İç öğeleri konumlandırmak için */
+  overflow: hidden;
+  position: relative;
 }
 
 .anasayfa_image {
-  position: relative; /* Pozisyon ayarları */
-  width: 100%; /* Genişliği tam yap */
-  height: 100vh; /* Yüksekliği tam yap */
-  overflow: hidden; /* Taşmayı önle */
+  position: relative;
+  overflow: hidden;
 }
 
 .slick-active .anasayfa_image {
-  opacity: 1; /* Aktif slide'da görünür */
-  animation: zoomIn 10s ease-in-out; /* Yavaş yakınlaşma efekti */
+  opacity: 1;
+  animation: zoomIn 10s ease-in-out;
 }
 
 @keyframes zoomIn {
   0% {
-    transform: scale(1); /* Başlangıçta orijinal boyut */
+    transform: scale(1);
   }
   100% {
-    transform: scale(1.2); /* Son durumda daha fazla yakınlaşma */
+    transform: scale(1.2);
   }
 }
 
 /* Info Button Styling */
 .info-button-container {
   position: absolute;
-  bottom: 20px; /* Sayfanın en altına yakın */
-  left: 50%; /* Ortaya yerleştir */
-  transform: translateX(-50%); /* Tam olarak ortala */
-  text-align: center; /* İçeriği ortala */
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 }
 
 .info-button {
-  background-color: #000; /* Arka plan rengi */
-  color: #fff; /* Yazı rengi */
-  border: none; /* Kenarlık yok */
-  border-radius: 50%; /* Yuvarlak buton */
-  width: 20px; /* Buton genişliği */
-  height: 20px; /* Buton yüksekliği */
-  display: flex; /* Flexbox kullanarak ortala */
-  align-items: center; /* Dikey ortalama */
-  justify-content: center; /* Yatay ortalama */
-  font-size: 24px; /* Simge boyutu */
-  cursor: default; /* Default cursor */
-  position: relative; /* İç öğeleri konumlandırmak için */
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: default;
+  position: relative;
+}
+
+/* Tooltip görünümü :hover üzerine açılacak */
+.info-button-container:hover .tooltip {
+  display: block;
 }
 
 .tooltip {
-  display: none; /* Varsayılan olarak görünmez */
-  position: absolute; /* Mutlak konumlandırma */
-  bottom: 60px; /* Butonun üstünde */
+  display: none;
+  position: absolute;
+  bottom: 60px;
   left: 50%;
-  transform: translateX(-50%); /* Tam olarak ortala */
-  background-color: #000; /* Arka plan rengi */
-  color: #fff; /* Yazı rengi */
-  padding: 10px; /* İç boşluk */
-  border-radius: 5px; /* Yuvarlak köşeler */
-  white-space: nowrap; /* Satır kaydırmayı engelle */
-  z-index: 10; /* Diğer öğelerin üstünde olmasını sağla */
-}
-
-.info-button:hover + .tooltip {
-  display: block; /* Hover durumunda görünür */
+  transform: translateX(-50%);
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  z-index: 10;
 }
 
 /* Social Buttons Styling */
 .social-buttons {
-  position: absolute; /* Mutlak konumlandırma */
-  bottom: 20px; /* Sayfanın en altına yakın */
-  right: 20px; /* Sağ tarafta */
-  display: flex; /* Flexbox kullanarak yan yana diz */
-  flex-direction: column; /* Dikey olarak diz */
-  gap: 10px; /* Butonlar arasında boşluk */
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .social-button {
-  background-color: #fff; /* Arka plan rengi */
-  color: #000; /* Yazı rengi */
-  border: none; /* Kenarlık yok */
-  border-radius: 50%; /* Yuvarlak buton */
-  width: 40px; /* Buton genişliği */
-  height: 40px; /* Buton yüksekliği */
-  display: flex; /* Flexbox kullanarak ortala */
-  align-items: center; /* Dikey ortalama */
-  justify-content: center; /* Yatay ortalama */
-  font-size: 20px; /* Simge boyutu */
-  cursor: pointer; /* Pointer cursor */
-  transition: background-color 0.3s, color 0.3s; /* Geçiş efekti */
-  text-decoration: none; /* Link altı çizgilerini kaldır */
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-decoration: none;
 }
 
 .social-button i {
-  color: #000; /* İkon rengi */
+  color: #000;
 }
 
 .social-button:hover {
-  background-color: #000; /* Arka plan rengi hover durumunda */
-  color: #fff; /* Yazı rengi hover durumunda */
+  background-color: #000;
+  color: #fff;
 }
 
 .social-button:hover i {
-  color: #fff; /* İkon rengi hover durumunda */
+  color: #fff;
 }
 
 .cookie-banner {
@@ -121,15 +118,20 @@
   z-index: 9999;
 }
 
-.cookie-banner button {
-  background-color: #4CAF50;
+.cookie-banner a {
   color: white;
+  text-decoration: underline;
+}
+
+.cookie-banner button {
+  background-color: #fff;
+  color: #000;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  border-radius: 5px;
 }
 
 .cookie-banner button:hover {
-  background-color: #45a049;
+  background-color: #000;
+  color: #fff;
 }
