@@ -16,8 +16,8 @@ import { Link, useLocation } from "react-router-dom";
 
 const Navi = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const isMobile = useMediaQuery("(max-width: 600px)");
-  const isTablet = useMediaQuery("(min-width: 600px) and (max-width: 900px)");
+  const isMobile = useMediaQuery("(max-width: 900px)");
+  const isTablet = useMediaQuery("(min-width: 900px) and (max-width: 1800px)");
   const location = useLocation(); // Mevcut sayfa rotasını almak için
 
   const handleMenuOpen = (event) => {

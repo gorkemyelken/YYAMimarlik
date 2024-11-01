@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
@@ -56,20 +57,13 @@ export default function Referanslar() {
         {referanslar.slice(0, visibleCards).map((referans) => (
           <Grid item xs={2} sm={4} md={4} key={referans.id}>
             <Fade in={true} timeout={500}>
-              <Card sx={{ maxWidth: 345, position: 'relative' }}>
-                <CardMedia
-                  className="card-media"
-                  sx={{ height: 200, objectFit: 'cover' }} 
-                  image={referans.image} 
-                  title={referans.name}
-                />
-                <Typography
-                  className="card-title"
-                  variant="h6"
-                  component="div"
-                >
-                  {referans.name}
-                </Typography>
+              <Card sx={{ maxWidth: 300 }}>
+                  <CardMedia
+                    className="card-media"
+                    sx={{ height: 300, objectFit: 'cover' }} 
+                    image={referans.image} 
+                    title={referans.name}
+                  />
               </Card>
             </Fade>
           </Grid>
@@ -78,3 +72,5 @@ export default function Referanslar() {
     </Container>
   );
 }
+
+

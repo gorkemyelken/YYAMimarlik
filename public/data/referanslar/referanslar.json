@@ -1,12 +1,17 @@
 [
   {
     "id": 1,
-    "name": "Gorkem Yelken",
-    "image": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/Male+Avatar.png"
+    "name": "Porsche",
+    "image": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/porsche.png"
   },
   {
     "id": 2,
-    "name": "Yasin Yarmalı",
-    "image": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/Female+Avatar.png"
+    "name": "VolksWagen",
+    "image": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/volkswagen.png"
+  },
+  {
+    "id": 3,
+    "name": "BMW",
+    "image": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/bmw.png"
   }
 ]
