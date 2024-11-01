@@ -58,17 +58,34 @@ export default function Referanslar() {
           <Grid item xs={2} sm={4} md={4} key={referans.id}>
             <Fade in={true} timeout={500}>
               <Card sx={{ maxWidth: 345 }}>
-                  <CardMedia
-                    className="card-media"
-                    sx={{ height: 200, objectFit: 'cover' }} 
-                    image={referans.image} 
-                    title={referans.name}
-                  />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {referans.name}
-                  </Typography>
-                </CardContent>
+                <CardMedia
+                  className="card-media"
+                  sx={{ height: 200, objectFit: 'cover' }} 
+                  image={referans.image} 
+                  title={referans.name}
+                />
+                <Typography
+                  className="card-title"
+                  variant="h6"
+                  component="div"
+                  sx={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Background with transparency
+                    color: 'white',
+                    textAlign: 'center',
+                    opacity: 0,
+                    transition: 'opacity 0.3s',
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {referans.name}
+                </Typography>
               </Card>
             </Fade>
           </Grid>

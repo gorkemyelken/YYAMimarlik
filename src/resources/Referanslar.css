@@ -2,6 +2,7 @@
   transition: filter 0.3s ease; /* Smooth transition for the filter effect */
   filter: grayscale(100%); /* Start with grayscale */
   animation: none; /* Default state */
+  position: relative; /* Enable positioning for child elements */
 }
 
 .card-media:hover {
@@ -9,11 +10,19 @@
   animation: zoom 0.5s forwards; /* Apply zoom animation */
 }
 
+.card-title {
+  opacity: 0; /* Initially hidden */
+}
+
+.card-media:hover + .card-title {
+  opacity: 1; /* Show title on hover */
+}
+
 @keyframes zoom {
   0% {
-      transform: scale(1); /* Initial scale */
+    transform: scale(1); /* Initial scale */
   }
   100% {
-      transform: scale(1.1); /* Final scale (105%) */
+    transform: scale(1.1); /* Final scale (105%) */
   }
 }
