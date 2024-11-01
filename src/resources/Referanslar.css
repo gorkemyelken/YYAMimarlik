@@ -1,28 +1,30 @@
 .card-media {
-  transition: filter 0.3s ease; /* Smooth transition for the filter effect */
+  transition: filter 0.3s ease, transform 0.5s ease; /* Smooth transition for the filter and transform */
   filter: grayscale(100%); /* Start with grayscale */
-  animation: none; /* Default state */
   position: relative; /* Enable positioning for child elements */
 }
 
 .card-media:hover {
   filter: grayscale(0%); /* Remove grayscale on hover */
-  animation: zoom 0.5s forwards; /* Apply zoom animation */
+  transform: scale(1.1); /* Apply zoom effect */
 }
 
 .card-title {
   opacity: 0; /* Initially hidden */
+  transition: opacity 0.5s; /* Smooth transition for opacity */
+  position: absolute; /* Absolute positioning to overlay on CardMedia */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Background with transparency */
+  color: white;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-media:hover + .card-title {
   opacity: 1; /* Show title on hover */
-}
-
-@keyframes zoom {
-  0% {
-    transform: scale(1); /* Initial scale */
-  }
-  100% {
-    transform: scale(1.1); /* Final scale (105%) */
-  }
 }
