@@ -49,30 +49,26 @@ export default function Referanslar() {
 
   return (
     <Container className="page-container">
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-        {referanslar.slice(0, visibleCards).map(referans => (
+      <Grid
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+      >
+        {referanslar.slice(0, visibleCards).map((referans) => (
           <Grid item xs={2} sm={4} md={4} key={referans.id}>
-            {/* Add Fade animation */}
             <Fade in={true} timeout={500}>
-              <Card sx={{ maxWidth: 345, position: 'relative', overflow: 'hidden' }}>
-                {/* Container for image and title */}
-                <div style={{ position: 'relative' }}>
+              <Card sx={{ maxWidth: 345 }}>
                   <CardMedia
-                    className="card-media"  // Apply the CSS class here
-                    component="img"
-                    image={referans.image}
-                    alt={referans.name}  // Use "ad" as the alt text
-                    sx={{ height: '100%', width: '100%', objectFit: 'cover' }} // Make the image cover the entire square
+                    className="card-media"
+                    sx={{ height: 200 }}
+                    image={referans.image} 
+                    title={referans.name}
                   />
-                  {/* Title overlay */}
-                  <Typography
-                    variant="h6"
-                    component="div"
-                    className="overlay-text" // Use a CSS class for the overlay
-                  >
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
                     {referans.name}
                   </Typography>
-                </div>
+                </CardContent>
               </Card>
             </Fade>
           </Grid>
