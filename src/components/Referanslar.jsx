@@ -60,7 +60,7 @@ export default function Referanslar() {
               <Card sx={{ maxWidth: 345 }}>
                   <CardMedia
                     className="card-media"
-                    sx={{ height: 200 }}
+                    sx={{ height: 200, objectFit: 'cover' }} 
                     image={referans.image} 
                     title={referans.name}
                   />
