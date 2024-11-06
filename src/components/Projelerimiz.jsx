@@ -85,7 +85,7 @@ export default function Projelerimiz() {
                 >
                   <CardMedia
                     className="card-media"
-                    sx={{ height: 200 }}
+                    sx={{ height: 300 }}
                     image={proje.images[0]} // Burada resmin URL'sini alıyoruz
                     title={proje.name}
                   />

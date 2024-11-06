@@ -41,7 +41,7 @@ const Navi = () => {
 
   const pages = [
     { name: "YYA MİMARLIK", path: "/" },
-    { name: "HAKKIMIZDA", path: "/kurumsal" },
+    { name: "HAKKIMIZDA", path: "/hakkımızda" },
     { name: "PROJELER", path: "/projeler" },
     { name: "REFERANSLAR", path: "/referanslar" },
     { name: "İLETİŞİM", path: "/iletisim" },
@@ -50,10 +50,15 @@ const Navi = () => {
   // Sayfa rotasına göre arka plan ve yazı rengi ayarı
   const isHomePage = location.pathname === "/";
 
+  const logoUrl = isHomePage
+  ? "https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-beyaz.png"
+  : "https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya+intro+logo.png";
+
   return (
     <AppBar
       fixed
       sx={{
+        marginBottom: "10px",
         background: isHomePage
           ? "linear-gradient(to bottom, rgba(0, 0, 0, 1.2), rgba(0, 0, 0, 0))"
           : "rgb(255, 255, 255)",
@@ -76,7 +81,7 @@ const Navi = () => {
             {/* Ortadaki Logo */}
             <a href="/">
               <img
-                src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-mavi.png"
+                src={logoUrl}
                 alt="Logo"
                 style={{ height: "100px" }}
               />
@@ -117,7 +122,7 @@ const Navi = () => {
             <Box sx={{ position: "static", left: "110px" }}>
               <a href="/">
                 <img
-                  src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-mavi.png"
+                  src={logoUrl}
                   alt="Logo"
                   style={{ height: "100px" }}
                 />
@@ -161,7 +166,7 @@ const Navi = () => {
             <Box sx={{ position: "absolute", left: "20px" }}>
               <a href="/">
                 <img
-                  src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-mavi.png"
+                  src={logoUrl}
                   alt="Logo"
                   style={{ height: "100px" }}
                 />

@@ -28,18 +28,16 @@ const theme = createTheme({
 
 function App() {
   const location = useLocation();
-  const [loading, setLoading] = useState(true); // loading state
+  const [loading, setLoading] = useState(true);
 
-  // Sayfa yüklendiğinde ve rota değiştiğinde loading state'ini güncelle
   useEffect(() => {
     setLoading(true);
     const timer = setTimeout(() => {
-      setLoading(false); // sayfa yüklenince loading'i false yap
-    }, 1500); // yüklenme süresi, bu süre isteğe bağlıdır
+      setLoading(false);
+    }, 1500);
     return () => clearTimeout(timer);
-  }, [location]); // her rota değişiminde bu etki tetiklenir
+  }, [location]);
 
-  // Sağ tıklama ve metin seçimini engellemek için eklenen useEffect
   useEffect(() => {
     const disableRightClick = (e) => {
       e.preventDefault();
@@ -49,47 +47,42 @@ function App() {
     return () => {
       document.removeEventListener("contextmenu", disableRightClick);
     };
-  }, []); // Bu etki sadece bileşen yüklendiğinde bir kez çalışır
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
       <div className="App" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', userSelect: 'none' }}>
-        {/* Navi yalnızca loading tamamlanınca ve Proje Detay sayfası haricinde görünecek */}
         {!loading && location.pathname !== "/projeler/" && <Navi />}
         <div style={{ flexGrow: 1 }}>
-          {/* Loading animasyonu */}
           <AnimatePresence>
             {loading ? (
               <motion.div
                 className="loading-container"
-                initial={{ opacity: 1, rotate: 0, scale: 0.5 }}
-                animate={{ opacity: 1, rotate: 360, scale: 1 }}
-                exit={{ opacity: 0 }} // Solarak kaybolma efekti
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{
                   duration: 1.5,
-                  repeat: Infinity,
-                  repeatType: "loop",
                   ease: "easeInOut",
-                  exit: { duration: 1 }, // Exit sırasında geçiş süresi
                 }}
               >
                 <motion.img
                   src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-mavi.png"
                   alt="Loading logo"
                   className="loading-logo"
-                  initial={{ opacity: 0.8 }}
-                  animate={{ opacity: 1, rotate: 360 }}
-                  transition={{ duration: 1.5, ease: "easeInOut", repeat: Infinity, repeatType: "loop" }}
+                  initial={{ opacity: 0.8, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 1.5, ease: "easeInOut" }}
                 />
               </motion.div>
             ) : (
-              // Sayfa içerikleri (loading tamamlanınca gösterilecek)
               <AnimatePresence>
                 <Routes location={location} key={location.key}>
                   <Route exact path="/" element={<AnaSayfa />} />
                   <Route exact path="/anasayfa" element={<AnaSayfa />} />
                   <Route
-                    path="/kurumsal"
+                    path="/hakkımızda"
                     element={
                       <motion.div {...pageTransition}>
                         <Hakkımızda />
@@ -136,7 +129,6 @@ function App() {
                       </motion.div>
                     }
                   />
-                  {/* 404 sayfası en son yer almalı */}
                   <Route
                     path="*"
                     element={
@@ -150,7 +142,6 @@ function App() {
             )}
           </AnimatePresence>
         </div>
-        {/* Footer yalnızca loading tamamlanınca ve anasayfa dışındaki sayfalarda gizli olacak */}
         {!loading && location.pathname !== "/" && location.pathname !== "/projeler/" && <Footer />}
       </div>
     </ThemeProvider>

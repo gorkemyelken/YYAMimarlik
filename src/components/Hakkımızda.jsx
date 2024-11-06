@@ -95,8 +95,7 @@ const Hakkımızda = () => {
           <StyledPaper>
             <Typography variant="h5">Misyonumuz</Typography>
             <Typography variant="body2">
-              Kaliteli ve estetik yapılar tasarlayarak, sürdürülebilir yaşam
-              alanları yaratmak.
+            Müşterilerimizin hayallerini gerçeğe dönüştürürken, estetik ve fonksiyonelliği bir araya getiren, çevreye duyarlı ve teknolojik çözümlerle, yaşam kalitesini artıran projeler üretmek. Genç ve dinamik ekibimizle sektöre yeni bir bakış açısı getirerek, mimari sınırların en üst noktasına ulaşmak ve cizgiden yaşama sloganını herkese duyurmak.
             </Typography>
           </StyledPaper>
         </Grid>
@@ -104,7 +103,7 @@ const Hakkımızda = () => {
           <StyledPaper>
             <Typography variant="h5">Vizyonumuz</Typography>
             <Typography variant="body2">
-              Modern mimarlık anlayışıyla, geleceğin şehirlerini inşa etmek.
+            Sürdürülebilirlik, estetik ve fonksiyonelliği bir araya getirerek, yaşanabilir ve geleceğe dönük mekanlar tasarlamaktır. İnsan odaklı bir yaklaşımla, mimarinin gücünü kullanarak toplumsal değerlere katkı sağlamayı hedefliyoruz.Bu hedefte çizgiden yaşama her durumda müşterimiz ile hayallerindeki yapıyı gerçekleştirmekten gurur duyuyoruz
             </Typography>
           </StyledPaper>
         </Grid>
