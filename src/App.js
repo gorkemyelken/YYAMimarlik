@@ -82,7 +82,7 @@ function App() {
                   <Route exact path="/" element={<AnaSayfa />} />
                   <Route exact path="/anasayfa" element={<AnaSayfa />} />
                   <Route
-                    path="/hakkımızda"
+                    path="/hakkimizda"
                     element={
                       <motion.div {...pageTransition}>
                         <Hakkımızda />

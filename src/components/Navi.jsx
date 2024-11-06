@@ -41,7 +41,7 @@ const Navi = () => {
 
   const pages = [
     { name: "YYA MİMARLIK", path: "/" },
-    { name: "HAKKIMIZDA", path: "/hakkımızda" },
+    { name: "HAKKIMIZDA", path: "/hakkimizda" },
     { name: "PROJELER", path: "/projeler" },
     { name: "REFERANSLAR", path: "/referanslar" },
     { name: "İLETİŞİM", path: "/iletisim" },
