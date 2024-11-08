@@ -14,7 +14,7 @@ const slugify = (text) => {
     'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u',
     'Ç': 'C', 'Ğ': 'G', 'İ': 'I', 'Ö': 'O', 'Ş': 'S', 'Ü': 'U'
   };
-  
+
   const replacedText = text.split('').map(char => turkishToEnglish[char] || char).join('');
 
   return replacedText
@@ -57,13 +57,13 @@ export default function Projelerimiz() {
   }, []);
 
   if (loading) {
-    return <Typography variant="h6">Loading projects...</Typography>;
+    return <Typography variant="h6" textAlign="center">Projeler yükleniyor...</Typography>;
   }
 
   if (error) {
     return (
-      <Typography variant="h6" color="error">
-        Error: {error}
+      <Typography variant="h6" color="error" textAlign="center">
+        Hata: {error}
       </Typography>
     );
   }
@@ -78,23 +78,35 @@ export default function Projelerimiz() {
         {projeler.slice(0, visibleCards).map((proje) => (
           <Grid item xs={2} sm={4} md={4} key={proje.id}>
             <Fade in={true} timeout={500}>
-              <Card sx={{ maxWidth: 345 }}>
+              <Card
+                sx={{
+                  maxWidth: 345,
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                  boxShadow: 3,
+                  transition: "transform 0.3s, box-shadow 0.3s",
+                  "&:hover": {
+                    transform: "translateY(-5px)",
+                    boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)",
+                  },
+                }}
+              >
                 <Link
-                  to={`/projeler/${slugify(proje.name)}`} // Slug kullanımı
-                  style={{ textDecoration: "none" }}
+                  to={`/projeler/${slugify(proje.name)}`}
+                  style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <CardMedia
                     className="card-media"
-                    sx={{ height: 300 }}
-                    image={proje.images[0]} // Burada resmin URL'sini alıyoruz
+                    sx={{ height: 300, objectFit: "cover" }}
+                    image={proje.images[0]}
                     title={proje.name}
                   />
+                  <CardContent sx={{ textAlign: "center" }}>
+                    <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: "bold" }}>
+                      {proje.name}
+                    </Typography>
+                  </CardContent>
                 </Link>
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {proje.name}
-                  </Typography>
-                </CardContent>
               </Card>
             </Fade>
           </Grid>
