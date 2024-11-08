@@ -80,7 +80,10 @@ export default function Projelerimiz() {
             <Fade in={true} timeout={500}>
               <Card
                 sx={{
-                  maxWidth: 345,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  height: '100%', // Kartların eşit yükseklikte olmasını sağlar
                   borderRadius: "12px",
                   overflow: "hidden",
                   boxShadow: 3,
@@ -93,16 +96,16 @@ export default function Projelerimiz() {
               >
                 <Link
                   to={`/projeler/${slugify(proje.name)}`}
-                  style={{ textDecoration: "none", color: "inherit" }}
+                  style={{ textDecoration: "none", color: "inherit", height: "100%" }}
                 >
                   <CardMedia
                     className="card-media"
-                    sx={{ height: 300, objectFit: "cover" }}
+                    sx={{ height: 200, objectFit: "cover" }} // Resimlerin yüksekliğini sabitler
                     image={proje.images[0]}
                     title={proje.name}
                   />
-                  <CardContent sx={{ textAlign: "center" }}>
-                    <Typography gutterBottom variant="h5" component="div" >
+                  <CardContent sx={{ textAlign: "center", flexGrow: 1 }}>
+                    <Typography gutterBottom variant="h5" component="div">
                       {proje.name}
                     </Typography>
                   </CardContent>
