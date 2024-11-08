@@ -97,7 +97,7 @@ export default function Referanslar() {
                   title={referans.name}
                 />
                 <CardContent sx={{ textAlign: "center" }}>
-                  <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: "bold" }}>
+                  <Typography gutterBottom variant="h5" component="div">
                     {referans.name}
                   </Typography>
                 </CardContent>
