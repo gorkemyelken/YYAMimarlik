@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Typography, Box, Grid, Paper } from "@mui/material";
+import { Container, Typography, Box, Grid, Paper, Button } from "@mui/material";
 import { styled, keyframes } from "@mui/material/styles";
 
 // Scroll animasyonu için keyframes
@@ -16,54 +16,71 @@ const bounce = keyframes`
 const StyledPaper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
   textAlign: "center",
-  color: theme.palette.text.secondary,
+  color: theme.palette.text.primary,
+  backgroundColor: "#f4f4f9",
+  borderRadius: "12px",
+  boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)",
   margin: theme.spacing(2, 0),
-  transition: "transform 0.3s",
-  display: "flex", // Flexbox ile eşit yükseklik sağlanacak
+  transition: "transform 0.3s, box-shadow 0.3s",
+  display: "flex",
   flexDirection: "column",
-  justifyContent: "center", // İçeriği dikey ortalar
-  height: "100%", // Kutuların tam yüksekliği eşit olacak
+  justifyContent: "center",
+  height: "100%",
   "&:hover": {
     transform: "translateY(-10px)",
-    boxShadow: theme.shadows[10],
+    boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)",
   },
 }));
 
 const AnimatedImageWrapper = styled(Box)({
-  position: "relative", // Relative positioning of the wrapper to contain the absolute icon
+  position: "relative",
   width: "100%",
+  overflow: "hidden",
+  borderRadius: "12px",
+  marginBottom: "24px",
 });
 
 const AnimatedImage = styled("img")({
   width: "100%",
-  borderRadius: "8px",
-  transition: "transform 0.3s",
+  borderRadius: "12px",
+  transition: "transform 0.3s, filter 0.3s",
   "&:hover": {
     transform: "scale(1.05)",
+    filter: "brightness(1.1)",
   },
 });
 
 const ScrollIcon = styled("div")(({ theme }) => ({
   width: "30px",
   height: "50px",
-  border: "2px solid",
+  border: `2px solid ${theme.palette.text.primary}`,
   borderRadius: "30px",
-  position: "absolute", // Absolute positioning to place it at the bottom of the image
-  bottom: "20px", // Aşağıdan 20px yukarıda olacak
-  left: "50%", // Ortalamak için soldan %50
-  transform: "translateX(-50%)", // Ortada kalmasını sağlamak için soldan %50'nin yarısı kadar geri çekiyoruz
+  position: "absolute",
+  bottom: "20px",
+  left: "50%",
+  transform: "translateX(-50%)",
   "&::before": {
     content: '""',
     display: "block",
     width: "6px",
     height: "6px",
     borderRadius: "50%",
-    backgroundColor: "black",
+    backgroundColor: theme.palette.text.primary,
     position: "absolute",
     top: "10px",
     left: "50%",
     transform: "translateX(-50%)",
     animation: `${bounce} 1.5s infinite`,
+  },
+}));
+
+const CTAButton = styled(Button)(({ theme }) => ({
+  marginTop: theme.spacing(2),
+  backgroundColor: theme.palette.primary.main,
+  color: "#fff",
+  padding: theme.spacing(1, 4),
+  "&:hover": {
+    backgroundColor: theme.palette.primary.dark,
   },
 }));
 
@@ -78,7 +95,10 @@ const Hakkımızda = () => {
         {/* Scroll aşağı animasyonu */}
         <ScrollIcon />
       </AnimatedImageWrapper>
-      <Box mb={4}>
+      <Box mb={4} textAlign="center">
+        <Typography variant="h4" gutterBottom>
+          Biz Kimiz?
+        </Typography>
         <Typography variant="body1" paragraph>
           Biz, mimarlık alanında yenilikçi çözümler sunan bir ekibiz. Estetik
           ve işlevselliği bir araya getirerek, yaşam alanlarınızı daha güzel
@@ -89,21 +109,38 @@ const Hakkımızda = () => {
           aşamada sizlerle iletişimde kalarak, ihtiyaçlarınıza özel çözümler
           sunuyoruz.
         </Typography>
+        <CTAButton variant="contained" href="/projeler">
+          Projelerimizi Keşfedin
+        </CTAButton>
       </Box>
-      <Grid container spacing={2}>
+      <Grid container spacing={4}>
         <Grid item xs={12} md={6}>
           <StyledPaper>
-            <Typography variant="h5">Misyonumuz</Typography>
+            <Typography variant="h5" gutterBottom>
+              Misyonumuz
+            </Typography>
             <Typography variant="body2">
-            Müşterilerimizin hayallerini gerçeğe dönüştürürken, estetik ve fonksiyonelliği bir araya getiren, çevreye duyarlı ve teknolojik çözümlerle, yaşam kalitesini artıran projeler üretmek. Genç ve dinamik ekibimizle sektöre yeni bir bakış açısı getirerek, mimari sınırların en üst noktasına ulaşmak ve cizgiden yaşama sloganını herkese duyurmak.
+              Müşterilerimizin hayallerini gerçeğe dönüştürürken, estetik ve
+              fonksiyonelliği bir araya getiren, çevreye duyarlı ve teknolojik
+              çözümlerle, yaşam kalitesini artıran projeler üretmek. Genç ve
+              dinamik ekibimizle sektöre yeni bir bakış açısı getirerek, mimari
+              sınırların en üst noktasına ulaşmak ve "çizgiden yaşama" sloganını
+              herkese duyurmak.
             </Typography>
           </StyledPaper>
         </Grid>
         <Grid item xs={12} md={6}>
           <StyledPaper>
-            <Typography variant="h5">Vizyonumuz</Typography>
+            <Typography variant="h5" gutterBottom>
+              Vizyonumuz
+            </Typography>
             <Typography variant="body2">
-            Sürdürülebilirlik, estetik ve fonksiyonelliği bir araya getirerek, yaşanabilir ve geleceğe dönük mekanlar tasarlamaktır. İnsan odaklı bir yaklaşımla, mimarinin gücünü kullanarak toplumsal değerlere katkı sağlamayı hedefliyoruz.Bu hedefte çizgiden yaşama her durumda müşterimiz ile hayallerindeki yapıyı gerçekleştirmekten gurur duyuyoruz
+              Sürdürülebilirlik, estetik ve fonksiyonelliği bir araya getirerek,
+              yaşanabilir ve geleceğe dönük mekanlar tasarlamaktır. İnsan odaklı
+              bir yaklaşımla, mimarinin gücünü kullanarak toplumsal değerlere
+              katkı sağlamayı hedefliyoruz. Bu hedefte "çizgiden yaşama" her
+              durumda müşterimiz ile hayallerindeki yapıyı gerçekleştirmekten
+              gurur duyuyoruz.
             </Typography>
           </StyledPaper>
         </Grid>
