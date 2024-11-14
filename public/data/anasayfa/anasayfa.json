@@ -1,12 +1,32 @@
 [
   {
     "id": 1,
-    "imageUrl": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/AnaSayfa/anasayfa1.jpg",
-    "name": "Proje Name 1"
+    "imageUrl": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/YYA-AnaSayfa/anasayfa1.jpg",
+    "name": "Proje İsmi 1"
   },
   {
     "id": 2,
-    "imageUrl": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/AnaSayfa/anasayfa2.jpg",
-    "name": "Proje Name 2"
+    "imageUrl": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/YYA-AnaSayfa/anasayfa2.jpg",
+    "name": "Proje İsmi 2"
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/YYA-AnaSayfa/anasayfa3.jpg",
+    "name": "Proje İsmi 3"
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/YYA-AnaSayfa/anasayfa4.jpg",
+    "name": "Proje İsmi 4"
+  },
+  {
+    "id": 5,
+    "imageUrl": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/YYA-AnaSayfa/anasayfa5.jpg",
+    "name": "Proje İsmi 5"
+  },
+  {
+    "id": 6,
+    "imageUrl": "https://yyamimarlik.s3.eu-north-1.amazonaws.com/YYA-AnaSayfa/anasayfa6.jpg",
+    "name": "Proje İsmi 6"
   }
 ]
