@@ -17,8 +17,7 @@ import { Link, useLocation } from "react-router-dom";
 const Navi = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const isMobile = useMediaQuery("(max-width: 900px)");
-  const isTablet = useMediaQuery("(min-width: 900px) and (max-width: 1800px)");
-  const location = useLocation(); // Mevcut sayfa rotasını almak için
+  const location = useLocation();
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -47,12 +46,11 @@ const Navi = () => {
     { name: "İLETİŞİM", path: "/iletisim" },
   ];
 
-  // Sayfa rotasına göre arka plan ve yazı rengi ayarı
   const isHomePage = location.pathname === "/";
 
   const logoUrl = isHomePage
-  ? "https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-beyaz.png"
-  : "https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya+intro+logo.png";
+    ? "https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya-logo-beyaz.png"
+    : "https://yyamimarlik.s3.eu-north-1.amazonaws.com/yya+intro+logo.png";
 
   return (
     <AppBar
@@ -68,7 +66,6 @@ const Navi = () => {
       <Toolbar sx={{ justifyContent: isMobile ? "space-between" : "center" }}>
         {isMobile ? (
           <>
-            {/* Mobil görünüm (Hamburger Menü) */}
             <IconButton
               edge="start"
               color="inherit"
@@ -77,21 +74,12 @@ const Navi = () => {
             >
               <MenuIcon sx={{ color: isHomePage ? "white" : "black" }} />
             </IconButton>
-
-            {/* Ortadaki Logo */}
             <a href="/">
-              <img
-                src={logoUrl}
-                alt="Logo"
-                style={{ height: "100px" }}
-              />
+              <img src={logoUrl} alt="Logo" style={{ height: "100px" }} />
             </a>
-            {/* Sağdaki Paylaş Butonu */}
             <IconButton color="inherit" onClick={handleShare}>
               <ShareIcon sx={{ color: isHomePage ? "white" : "black" }} />
             </IconButton>
-
-            {/* Menü (Hamburger Menü) */}
             <Menu
               anchorEl={anchorEl}
               open={Boolean(anchorEl)}
@@ -105,90 +93,55 @@ const Navi = () => {
                   component={Link}
                   to={page.path}
                   sx={{
-                    textDecoration:
-                      location.pathname === page.path ? "underline" : "none", // Alt çizgi
+                    borderBottom: location.pathname === page.path ? "2px solid #194f90" : "none",
                   }}
                 >
-                  <Typography fontFamily="Poppins" fontSize="18px">
+                  <Typography fontFamily='"Poppins", sans-serif' fontSize="20px">
                     {page.name}
                   </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </>
-        ) : isTablet ? (
-          <>
-            {/* Tablet görünümü (600px ile 900px arası) */}
-            <Box sx={{ position: "static", left: "110px" }}>
-              <a href="/">
-                <img
-                  src={logoUrl}
-                  alt="Logo"
-                  style={{ height: "100px" }}
-                />
-              </a>
-            </Box>
-
-            <Box sx={{ display: "flex", gap: 5 }}>
-              {pages.map((page, index) => (
-                <Button
-                  key={index}
-                  component={Link}
-                  to={page.path}
-                  sx={{
-                    letterSpacing: "1",
-                    color: isHomePage ? "white" : "black",
-                    textDecoration:
-                      location.pathname === page.path ? "underline" : "none", // Alt çizgi
-                  }}
-                >
-                  <Typography fontFamily="Poppins" fontSize="18px">
-                    {page.name}
-                  </Typography>
-                </Button>
-              ))}
-            </Box>
-
-            <IconButton
-              sx={{
-                position: "static",
-                right: "110px", // Sağdan biraz içeri almak için
-                color: isHomePage ? "white" : "black",
-              }}
-              onClick={handleShare}
-            >
-              <ShareIcon />
-            </IconButton>
-          </>
         ) : (
           <>
-            {/* Masaüstü görünümü (900px ve üstü) */}
             <Box sx={{ position: "absolute", left: "20px" }}>
               <a href="/">
-                <img
-                  src={logoUrl}
-                  alt="Logo"
-                  style={{ height: "100px" }}
-                />
+                <img src={logoUrl} alt="Logo" style={{ height: "100px" }} />
               </a>
             </Box>
 
-            <Box sx={{ display: "flex", gap: 5 }}>
+            <Box sx={{ display: "flex", gap: 3 }}>
               {pages.map((page, index) => (
                 <Button
                   key={index}
                   component={Link}
                   to={page.path}
                   sx={{
-                    letterSpacing: "0.5em",
+                    position: "relative",
                     color: isHomePage ? "white" : "black",
-                    textDecoration:
-                      location.pathname === page.path ? "underline" : "none", // Alt çizgi
+                    fontSize: "20px", // Font büyütüldü
+                    letterSpacing: "0.3rem",
+                    fontFamily: '"Poppins", sans-serif', // İstenen font eklendi
+                    "&:hover": {
+                      color: "#194f90",
+                    },
+                    "&::after": {
+                      content: '""',
+                      position: "absolute",
+                      left: 0,
+                      bottom: -3,
+                      height: "2px",
+                      width: location.pathname === page.path ? "100%" : "0",
+                      backgroundColor: "#194f90",
+                      transition: "width 0.3s",
+                    },
+                    "&:hover::after": {
+                      width: "100%",
+                    },
                   }}
                 >
-                  <Typography fontFamily="Poppins" fontSize="18px">
-                    {page.name}
-                  </Typography>
+                  {page.name}
                 </Button>
               ))}
             </Box>
@@ -196,7 +149,7 @@ const Navi = () => {
             <IconButton
               sx={{
                 position: "absolute",
-                right: "20px", // Sağdan biraz içeri almak için
+                right: "20px",
                 color: isHomePage ? "white" : "black",
               }}
               onClick={handleShare}

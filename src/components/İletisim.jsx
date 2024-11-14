@@ -16,27 +16,29 @@ import emailjs from "emailjs-com";
 const StyledPaper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
   textAlign: "center",
-  backgroundColor: "#f4f4f9",
+  backgroundColor: "#ffffff", // İlk başta beyaz arka plan
   borderRadius: "12px",
-  boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)",
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
   height: "100%",
-  transition: "transform 0.3s",
+  transition: "transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s",
   "&:hover": {
-    transform: "translateY(-5px)",
+    transform: "translateY(-10px)",
     boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)",
+    backgroundColor: "#194f90", // Logonun mavisi
+    color: "#ffffff", // Yazılar beyaz
   },
 }));
 
 const CTAButton = styled(Button)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: "#194f90", // Logonun mavisi
   color: "#fff",
   padding: theme.spacing(1, 4),
   marginTop: theme.spacing(2),
   "&:hover": {
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: "#153a6b",
   },
 }));
 
