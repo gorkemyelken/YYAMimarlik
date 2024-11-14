@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "../resources/AnaSayfa.css";
 import LazyLoad from "react-lazyload";
 import { Snackbar, Button, Typography, IconButton } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close"; // Kapatma ikonu
+import CloseIcon from "@mui/icons-material/Close";
 
 const AnaSayfa = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -14,14 +14,14 @@ const AnaSayfa = () => {
     dots: false,
     infinite: true,
     autoplay: true,
-    speed: 500,
+    speed: 1000, // Daha yumuşak geçiş hızı
     pauseOnHover: false,
-    autoplaySpeed: 9000,
+    autoplaySpeed: 7000, // Daha sık geçiş için süre
     beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    fade: true,
+    fade: true, // Fade geçişi
   };
 
   useEffect(() => {
@@ -78,7 +78,8 @@ const AnaSayfa = () => {
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   transform: currentSlide === index ? "scale(1.1)" : "scale(1)",
-                  transition: "transform 0.5s ease",
+                  transition: "transform 1s ease, opacity 0.5s ease",
+                  opacity: currentSlide === index ? 1 : 0.7,
                 }}
               ></div>
             </LazyLoad>
@@ -189,7 +190,7 @@ const AnaSayfa = () => {
             color: "white",
             backdropFilter: "blur(5px)",
             boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.5)",
-            maxWidth: "80%", // Mobil uyumlu genişlik
+            maxWidth: "80%",
             width: "100%",
             position: "relative",
           },
