@@ -1,9 +1,1 @@
-.card-media {
-  transition: filter 0.3s ease, transform 0.3s ease; /* Smooth transition for filter and scale */
-  filter: grayscale(100%); /* Start with grayscale */
-}
 
-.card-media:hover {
-  filter: grayscale(0%); /* Remove grayscale on hover */
-  transform: scale(1.05); /* Slight zoom on hover */
-}

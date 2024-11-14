@@ -79,18 +79,23 @@ export default function Projelerimiz() {
           <Grid item xs={2} sm={4} md={4} key={proje.id}>
             <Fade in={true} timeout={500}>
               <Card
+                className="project-card"
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  height: '100%', // Kartların eşit yükseklikte olmasını sağlar
+                  height: '100%',
                   borderRadius: "12px",
                   overflow: "hidden",
-                  boxShadow: 3,
+                  boxShadow: "0 4px 16px rgba(0, 0, 0, 0.1)",
                   transition: "transform 0.3s, box-shadow 0.3s",
                   "&:hover": {
-                    transform: "translateY(-5px)",
-                    boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)",
+                    transform: "scale(1.05)",
+                    boxShadow: "0 12px 24px rgba(0, 0, 0, 0.3)",
+                    "& .project-overlay": {
+                      opacity: 1,
+                      transform: "translateY(0)",
+                    },
                   },
                 }}
               >
@@ -98,14 +103,21 @@ export default function Projelerimiz() {
                   to={`/projeler/${slugify(proje.name)}`}
                   style={{ textDecoration: "none", color: "inherit", height: "100%" }}
                 >
-                  <CardMedia
-                    className="card-media"
-                    sx={{ height: 200, objectFit: "cover" }} // Resimlerin yüksekliğini sabitler
-                    image={proje.images[0]}
-                    title={proje.name}
-                  />
+                  <div className="image-container">
+                    <CardMedia
+                      className="card-media"
+                      sx={{ height: 200, objectFit: "cover" }}
+                      image={proje.images[0]}
+                      title={proje.name}
+                    />
+                    <div className="project-overlay">
+                      <Typography variant="h5" component="div">
+                        {proje.projectType}
+                      </Typography>
+                    </div>
+                  </div>
                   <CardContent sx={{ textAlign: "center", flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h5" component="div" className="project-title">
                       {proje.name}
                     </Typography>
                   </CardContent>
