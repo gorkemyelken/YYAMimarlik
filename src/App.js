@@ -15,9 +15,10 @@ import Footer from "./components/Footer";
 import Kvkk from "./components/Kvkk";
 
 const pageTransition = {
-  initial: { opacity: 0, scale: 0.9 },
-  animate: { opacity: 1, scale: 1 },
-  transition: { duration: 1.5 },
+  initial: { opacity: 0, y: 30 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -30 },
+  transition: { duration: 0.8, ease: "easeInOut" },
 };
 
 const theme = createTheme({
@@ -54,7 +55,7 @@ function App() {
       <div className="App" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', userSelect: 'none' }}>
         {!loading && location.pathname !== "/projeler/" && <Navi />}
         <div style={{ flexGrow: 1 }}>
-          <AnimatePresence>
+          <AnimatePresence mode="wait">
             {loading ? (
               <motion.div
                 className="loading-container"
@@ -77,10 +78,13 @@ function App() {
                 />
               </motion.div>
             ) : (
-              <AnimatePresence>
+              <AnimatePresence mode="wait">
                 <Routes location={location} key={location.key}>
                   <Route exact path="/" element={<AnaSayfa />} />
-                  <Route exact path="/anasayfa" element={<AnaSayfa />} />
+                  <Route
+                    path="/anasayfa"
+                    element={<AnaSayfa />} // Anasayfada animasyon uygulanmıyor
+                  />
                   <Route
                     path="/hakkimizda"
                     element={
@@ -98,7 +102,7 @@ function App() {
                     }
                   />
                   <Route
-                    path="/projeler/:slug" 
+                    path="/projeler/:slug"
                     element={
                       <motion.div {...pageTransition}>
                         <ProjeDetay />
