@@ -6,7 +6,7 @@ import "../resources/Hakkımızda.css";
 const StyledPaper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
   textAlign: "center",
-  backgroundColor: "#ffffff", // İlk başta beyaz arka plan
+  backgroundColor: "#ffffff",
   borderRadius: "12px",
   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
   margin: theme.spacing(2, 0),
@@ -18,19 +18,19 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   "&:hover": {
     transform: "translateY(-10px)",
     boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)",
-    backgroundColor: "#194f90", // Logonun mavisi
-    color: "#ffffff", // Yazılar beyaz
+    backgroundColor: "#194f90",
+    color: "#ffffff",
   },
 }));
 
 const CTAButton = styled(Button)(({ theme }) => ({
   marginTop: theme.spacing(2),
-  backgroundColor: "#194f90", // Logonun mavisi
+  backgroundColor: "#194f90",
   color: "#fff",
   padding: theme.spacing(1, 4),
   transition: "background-color 0.3s, box-shadow 0.3s",
   "&:hover": {
-    backgroundColor: "#153a6b", // Daha koyu mavi
+    backgroundColor: "#153a6b",
     boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2)",
   },
 }));
@@ -39,10 +39,13 @@ const Hakkımızda = () => {
   return (
     <Container className="page-container" maxWidth="lg">
       <Box className="animated-image-wrapper">
-        <img
+        <video
           className="animated-image"
-          src="https://yyamimarlik.s3.eu-north-1.amazonaws.com/YYA+%C3%87%C4%B0ZG%C4%B0DEN+YA%C5%9EAMA+KURUMSAL+RENK-1.png"
-          alt="Mimarlık Projesi"
+          src="/cizgiden-yasama.mp4" // public klasöründeki video dosyası
+          autoPlay
+          muted
+          onEnded={(e) => e.target.pause()} // Video bittiğinde durması için
+          style={{ width: "100%", borderRadius: "12px" }}
         />
         <div className="scroll-icon"></div>
       </Box>
