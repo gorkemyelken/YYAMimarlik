@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "../resources/AnaSayfa.css";
-import LazyLoad from "react-lazyload";
 import { Snackbar, Button, Typography, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -67,24 +66,22 @@ const AnaSayfa = () => {
       }}
     >
       <Slider {...settings}>
-        {imageUrls.map((image, index) => (
-          <div key={index}>
-            <LazyLoad height={window.innerHeight} offset={100}>
-              <div
-                className="anasayfa_image"
-                style={{
-                  background: `url(${image.imageUrl})`,
-                  height: "100vh",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  transform: currentSlide === index ? "scale(1.1)" : "scale(1)",
-                  transition: "transform 1s ease, opacity 0.5s ease",
-                  opacity: currentSlide === index ? 1 : 0.7,
-                }}
-              ></div>
-            </LazyLoad>
-          </div>
-        ))}
+      {imageUrls.map((image, index) => (
+  <div key={index}>
+    <div
+      className="anasayfa_image"
+      style={{
+        background: `url(${image.imageUrl})`,
+        height: "100vh",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        transform: currentSlide === index ? "scale(1.1)" : "scale(1)",
+        transition: "transform 1s ease, opacity 0.5s ease",
+        opacity: currentSlide === index ? 1 : 0.7,
+      }}
+    ></div>
+  </div>
+))}
       </Slider>
 
       <div className="info-button-container">
